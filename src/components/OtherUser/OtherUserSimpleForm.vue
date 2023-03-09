@@ -5,7 +5,7 @@ import { useOtherUser } from "@/stores/otherUsers";
 
 const otherUsersStore = useOtherUser();
 
-const emit = defineEmits(['submit'])
+const emit = defineEmits(["submit"]);
 
 const message = ref("");
 // async function sendForm() {
@@ -24,8 +24,10 @@ const message = ref("");
 
 // mock function
 function sendForm() {
-  emit('submit', message.value)
-  message.value = ""
+  if (message.value != "") {
+    emit("submit", message.value);
+    message.value = "";
+  }
 }
 </script>
 
